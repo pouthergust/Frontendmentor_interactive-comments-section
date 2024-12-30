@@ -2,14 +2,15 @@
   <div class="comment__list">
     <div class="comment__wrapper">
       <div class="comment__vote">
-        <button>+</button><input type="number"/><button>-</button>
+        <RatingButton />
       </div>
       <div class="comment__main">
         <div class="comment__header">
-          <img src="./../public/images/avatars/image-amyrobson.png" alt="Avatar">
-          <p class="comment__name">John Doe</p>
-          <p class="comment__date">2022-01-01</p>
+          <NuxtImg src="./../public/images/avatars/image-amyrobson.png" alt="Avatar" />
+          <p class="comment__name">amyrobson</p>
+          <p class="comment__date">1 month ago</p>
           <button class="comment__replyButton">
+            <NuxtImg src="./../public/images/icon-reply.svg" alt="Reply" />
             Reply
           </button>
         </div>
@@ -43,6 +44,13 @@
 
     &__header {
       @extend %flex;
+      gap: 16px;
+    }
+
+    &__replyButton {
+      margin-left: auto;
+      background-color: transparent;
+      border: none;
     }
   }
 </style> 

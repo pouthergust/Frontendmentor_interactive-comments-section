@@ -1,3 +1,8 @@
+<script setup>
+  const sendMessage = () => { console.log("Aooba"); }
+
+</script>
+
 <template>
   <div class="typeMessage__container">
     <img class="typeMessage__img" src="./../public/images/avatars/image-juliusomo.png" alt="Avatar">
