@@ -1,7 +1,20 @@
+<script setup lang="ts">
+  import data from '@/data.json' 
+
+  const comments = ref(data.comments)
+
+</script>
+
 <template>
   <div class="background">
     <div class="container">
-      <Comment />
+      <div class="messagesList">
+        <Comment 
+          v-for="comment in comments"
+          :key="comment.id"
+          v-bind="comment"
+        />
+      </div>
       <TypeMessage />
 
       <div class="attribution">
@@ -12,7 +25,12 @@
   </div>
 </template>
 
-<style scoped>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
   .attribution { font-size: 11px; text-align: center; }
   .attribution a { color: hsl(228, 45%, 44%); }
 
@@ -27,5 +45,10 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    max-height: 100vh;
+  }
+
+  .messagesList {
+    overflow: auto;
   }
 </style>

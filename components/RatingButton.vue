@@ -1,5 +1,12 @@
 <script setup lang="ts">
-  const votes = useState('votes', () => 0)
+  const props = defineProps({
+    score: {
+      type: Number,
+      default: 0
+    }
+  })
+
+  const votes = ref(props.score)
 </script>
 
 <template>
