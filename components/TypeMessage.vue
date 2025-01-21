@@ -5,8 +5,8 @@
 
 <template>
   <div class="typeMessage__container">
-    <img class="typeMessage__img" src="./../public/images/avatars/image-juliusomo.png" alt="Avatar">
-    <textarea 
+    <img class="typeMessage__img" src="./../static/images/avatars/image-juliusomo.png" alt="Avatar">
+    <textarea
       placeholder="Add a comment..."
       class="typeMessage__textarea"
     ></textarea>
@@ -18,7 +18,7 @@
   @use "sass:color";
 
   .typeMessage {
-    
+
     &__container {
       align-items: flex-start;
       background-color: #fff;

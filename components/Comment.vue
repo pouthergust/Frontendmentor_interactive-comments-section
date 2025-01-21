@@ -39,16 +39,16 @@
       </div>
       <div class="comment__main">
         <div class="comment__header">
-          <NuxtImg 
-            :src="user?.image.png ?? user?.image.webp" 
-            alt="Avatar" 
+          <NuxtImg
+            :src="user?.image.png ?? user?.image.webp"
+            alt="Avatar"
           />
           <p class="comment__name">{{ user?.username }}</p>
           <p class="comment__date">{{ createdAt }}</p>
           <button class="comment__replyButton">
-            <NuxtImg 
-              src="./../public/images/icon-reply.svg" 
-              alt="Reply" 
+            <NuxtImg
+              src="./../static/images/icon-reply.svg"
+              alt="Reply"
               width="12"
             />
             Reply
@@ -71,16 +71,16 @@
           </div>
           <div class="comment__main">
             <div class="comment__header">
-              <NuxtImg 
-                :src="replie.user?.image.png ?? replie.user?.image.webp" 
-                alt="Avatar" 
+              <NuxtImg
+                :src="replie.user?.image.png ?? replie.user?.image.webp"
+                alt="Avatar"
               />
               <p class="comment__name">{{ replie.user?.username }}</p>
               <p class="comment__date">{{ replie.createdAt }}</p>
               <button class="comment__replyButton">
-                <NuxtImg 
-                  src="./../public/images/icon-reply.svg" 
-                  alt="Reply" 
+                <NuxtImg
+                  src="./../static/images/icon-reply.svg"
+                  alt="Reply"
                   width="12"
                 />
                 Reply
@@ -126,7 +126,7 @@
     &__replyContainer {
       display: flex;
     }
-    
+
     &__replyIndicator {
       background-color: #95999b3b;
       margin: 0 24px;
@@ -177,4 +177,4 @@
       color: #95999b;
     }
   }
-</style> 
+</style>
