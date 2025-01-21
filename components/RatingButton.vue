@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { ref } from '@nuxtjs/composition-api'
+
   const props = defineProps({
     score: {
       type: Number,
@@ -12,14 +14,14 @@
 <template>
   <div class="ratingButton__container">
     <div class="ratingButton__wrapper">
-      <button 
+      <button
         class="ratingButton__button --plus"
         @click="votes++"
       >+</button>
       <span class="ratingButton__value ">
         {{ votes }}
       </span>
-      <button 
+      <button
         class="ratingButton__button --minus"
         @click="votes > 0 ? votes-- : votes"
       >-</button>
@@ -31,7 +33,6 @@
 $button-radio: 8px;
 
 .ratingButton {
-  
   &__container {
     display: grid;
     place-content: center;
