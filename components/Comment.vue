@@ -1,4 +1,5 @@
-<script setup lang="ts">
+<script lang="ts">
+  import RatingButton from './RatingButton.vue'
 
   interface CommentProps {
     id: number
@@ -14,21 +15,32 @@
     }
   }
 
-  defineProps<{
-    id: number
-    content: string
-    createdAt: string
-    score: number
-    user: {
-      image: {
-        png?: string
-        webp?: string
-      }
-      username: string
+  export default {
+    props: {
+      id: Number,
+      content: String,
+      createdAt: String,
+      score: Number,
+      user: {
+        type: Object,
+        default: function () {
+          return {
+            image: {
+              png: '',
+              webp: '',
+            },
+            username: '',
+          }
+        }
+      },
+      replies: {
+        type: Array as () => Array<CommentProps>,
+        default: function () {
+          return []
+        }
+      },
     }
-    replies: Array<CommentProps>
-  }>()
-
+  }
 </script>
 
 <template>
@@ -39,14 +51,15 @@
       </div>
       <div class="comment__main">
         <div class="comment__header">
-          <NuxtImg
+          <img
+            class="comment__userImg"
             :src="user?.image.png ?? user?.image.webp"
             alt="Avatar"
           />
           <p class="comment__name">{{ user?.username }}</p>
           <p class="comment__date">{{ createdAt }}</p>
           <button class="comment__replyButton">
-            <NuxtImg
+            <img
               src="./../static/images/icon-reply.svg"
               alt="Reply"
               width="12"
@@ -71,14 +84,15 @@
           </div>
           <div class="comment__main">
             <div class="comment__header">
-              <NuxtImg
+              <img
+                class="comment__userImg"
                 :src="replie.user?.image.png ?? replie.user?.image.webp"
                 alt="Avatar"
               />
               <p class="comment__name">{{ replie.user?.username }}</p>
               <p class="comment__date">{{ replie.createdAt }}</p>
               <button class="comment__replyButton">
-                <NuxtImg
+                <img
                   src="./../static/images/icon-reply.svg"
                   alt="Reply"
                   width="12"
@@ -121,6 +135,12 @@
       border-radius: 12px;
       margin: 1rem auto;
       @extend %flex;
+    }
+
+    &__userImg {
+      aspect-ratio: 1;
+      height: 48px;
+      border-radius: 50%;
     }
 
     &__replyContainer {

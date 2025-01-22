@@ -1,14 +1,28 @@
-<script setup lang="ts">
-  import { ref } from '@nuxtjs/composition-api'
+<script lang="ts">
+import Vue from 'vue';
 
-  const props = defineProps({
+  // interface RatingButtonProps {
+  //   score: number;
+  // }
+
+  export default Vue.extend({
+  props: {
     score: {
       type: Number,
-      default: 0
-    }
-  })
-
-  const votes = ref(props.score)
+      default: 0,
+    },
+  },
+  data() {
+    return {
+      votes: this.score, // Inicializa o estado local com a prop
+    };
+  },
+  watch: {
+    score(newScore) {
+      this.votes = newScore; // Sincroniza o estado local caso a prop mude
+    },
+  },
+});
 </script>
 
 <template>
